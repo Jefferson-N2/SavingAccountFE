@@ -1,0 +1,44 @@
+<h3 class="title">Detalle cuentas</h3>
+
+
+  <table class="table-clients" >
+    <thead class="thead" >
+      <td>Tipo cuenta</td>
+      <td>Numero Cuenta</td>
+      <td>% anual</td>
+      <td>Detalle Cuenta</td>
+    </thead>
+
+    <tbody *ngIf="accountList.length>0">
+      <tr *ngFor="let a of accountList" >
+        <td>{{ a.accountName }}</td>
+        <td>{{ a.accountNumber }}</td>
+        <td>3%</td>
+        <td class="buttons-flex">
+          <a class="button-table"  (click)="openModal(BalanceModal,a.accountNumber)">
+            <i class="fa-solid fa-circle-info"></i>
+                </a>
+      </td>    
+      </tr> 
+ 
+    </tbody>
+
+</table>
+<ng-template #BalanceModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Detalle mensual</h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="modalRef?.hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  
+  <app-balance
+[dataAccount]="dataAccount"
+(closeModal)="closeModal()"></app-balance>
+
+</ng-template>

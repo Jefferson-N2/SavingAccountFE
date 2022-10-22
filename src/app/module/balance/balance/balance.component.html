@@ -1,0 +1,20 @@
+<!-- <button type="button" class="btn" (click)=openMoodal(template)>Modal Prueba</button> -->
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Mes</th>
+            <th scope="col">Debito</th>
+            <th scope="col">Credito</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody ng-submit="this.getBalance(a.accountNumber)" ng-if="balanceList.length>0">
+        <tr *ngFor="let b of balanceList">
+            <th scope="row">{{ b.month }}</th>
+            <th scope="row">{{ b.debitValue }}</th>
+            <th scope="row">{{ b.creditValue }}</th>
+            <th scope="row">{{ b.totalValue }}</th>
+
+        </tr>
+    </tbody>

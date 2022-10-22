@@ -1,0 +1,36 @@
+<div class="container">
+    <form class="account-form" [formGroup]="formGroupAccount" *ngIf="formGroupAccount" (ngSubmit)="onSubmit($event)"
+        #formAccount="ngForm">
+
+        <label for="id" class="label">identificacion <i *ngIf="idField!.valid"
+                class="fa-solid fa-circle-check"></i></label>
+        <input id="id" type="text" formControlName="id" maxlength ="10" placeholder="Ci" autofocus="autofocus"
+            onFocus="this.select()" />
+
+        <span class="validation"
+            *ngIf="idField!.invalid && (idField!.touched || formAccount.submitted)">Requerido</span>
+
+        <label for="clientName" class="label">Nombre
+            <i *ngIf="nameField!.valid" class="fa-solid fa-circle-check"></i></label>
+        <input id="clientName" cols="40" rows="4" formControlName="clientName" 
+        placeholder="Name" />
+        <span class="validation" *ngIf="
+    nameField!.invalid &&
+          (nameField!.touched || formAccount.submitted)
+        ">Requerido</span>
+
+        <label for="amount" class="label">Monto
+            <i *ngIf="amountField!.valid" class="fa-solid fa-circle-check"></i></label>
+        <input id="amount" type="number" cols="30" rows="4" formControlName="amount" placeholder="Monto" />
+        <span class="validation" *ngIf="
+    amountField!.invalid &&
+          (amountField!.touched || formAccount.submitted)
+        ">Requerido</span>
+
+        <label for="percent" class="label">Porcentaje: {{ percetField?.getRawValue()}}</label>
+
+        <label for="month" class="label ">Meses {{monthField?.getRawValue()}}</label>
+
+        <button class="btn-guardar" type="submit">Agregar</button>
+    </form>
+</div>

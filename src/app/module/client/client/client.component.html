@@ -1,0 +1,24 @@
+<h3 class="title">clientes</h3>
+
+<table class="table-clients">
+    <thead class="thead">
+
+        <td>C. I</td>
+        <td>NOMBRE</td>
+        <td>DETALLE</td>
+    </thead>
+    <tbody *ngIf="clients.length > 0">
+        <tr *ngFor="let client of clients">
+
+            <td>{{ client.id }}</td>
+            <td>{{ client.name }}</td>
+            <td class="buttons-flex">
+                <a class="button-table" [routerLink]="['client/account/', client.id]">
+                    <i class="fa-solid fa-circle-info"></i>
+
+                </a>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
